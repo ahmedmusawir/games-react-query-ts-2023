@@ -18,6 +18,7 @@ interface Props {
 }
 
 function GameCard({ game }: Props) {
+  console.log({ game });
   return (
     <Card variant={"filled"}>
       <Image src={getCroppedImageUrl(game.background_image)} />
