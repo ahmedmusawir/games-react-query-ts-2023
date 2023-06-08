@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { FetchResponse, Game, GameQuery } from "../constants";
-import apiClient from "../services/apiClient";
-import useData from "./useData";
+import { FetchResponse, Game, GameQuery } from "../src/constants";
+import apiClient from "../src/services/apiClient";
+import useData from "../src/hooks/useData";
 
 const useGames = (gameQuery: GameQuery) =>
   useQuery({

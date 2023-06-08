@@ -2,6 +2,7 @@ import { AiOutlineStar } from "react-icons/ai";
 
 export interface FetchResponse<T> {
   count: number;
+  next: string | null;
   results: T[];
 }
 
