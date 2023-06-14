@@ -28,8 +28,8 @@ export interface Genre {
 }
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   order: string | null;
   searchText: string | null;
 }

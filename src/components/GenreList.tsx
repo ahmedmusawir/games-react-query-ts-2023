@@ -13,10 +13,10 @@ import { Genre } from "../constants";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-function GenreList({ onSelectGenre, selectedGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenreId }: Props) {
   const { data: genres, error, isLoading } = useGenres();
   // console.log("Genres:", genres);
   if (isLoading) return <Spinner />;
@@ -40,9 +40,7 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
               <Button
                 onClick={() => onSelectGenre(genre)}
                 fontSize={"lg"}
-                colorScheme={
-                  genre.id === selectedGenre?.id ? "facebook" : "gray"
-                }
+                colorScheme={genre.id === selectedGenreId ? "facebook" : "gray"}
                 whiteSpace={"normal"}
                 textAlign="left"
               >
