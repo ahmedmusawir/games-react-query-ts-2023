@@ -30,8 +30,8 @@ export interface Genre {
 export interface GameQuery {
   genreId?: number;
   platformId?: number;
-  order: string | null;
-  searchText: string | null;
+  order?: string | null;
+  searchText?: string | null;
 }
 
 export const meh = (

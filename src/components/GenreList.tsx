@@ -9,15 +9,12 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { getCroppedImageUrl } from "../services/imageUrl";
-import { Genre } from "../constants";
+import useGameQueryStore from "../store";
 
-interface Props {
-  onSelectGenre: (genre: Genre) => void;
-  selectedGenreId?: number;
-}
-
-function GenreList({ onSelectGenre, selectedGenreId }: Props) {
+function GenreList() {
   const { data: genres, error, isLoading } = useGenres();
+  const selectedGenreId = useGameQueryStore((s) => s.gameQuery.genreId);
+  const setSelectedGenreId = useGameQueryStore((s) => s.setGenreId);
   // console.log("Genres:", genres);
   if (isLoading) return <Spinner />;
   if (error) return null;
@@ -38,7 +35,7 @@ function GenreList({ onSelectGenre, selectedGenreId }: Props) {
                 src={getCroppedImageUrl(genre.image_background)}
               />
               <Button
-                onClick={() => onSelectGenre(genre)}
+                onClick={() => setSelectedGenreId(genre.id)}
                 fontSize={"lg"}
                 colorScheme={genre.id === selectedGenreId ? "facebook" : "gray"}
                 whiteSpace={"normal"}
