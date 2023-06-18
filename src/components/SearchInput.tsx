@@ -22,7 +22,10 @@ function SearchInput() {
         onSubmit={(e) => {
           e.preventDefault();
           navigate("/");
-          if (ref.current) setSearchText(ref.current.value);
+          if (ref.current) {
+            setSearchText(ref.current.value);
+            ref.current.value = "";
+          }
         }}
       >
         <InputGroup>
